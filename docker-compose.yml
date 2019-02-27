@@ -11,6 +11,7 @@ services:
       - "com.basho.riak.cluster.name=riak-kv"
     volumes:
       - schemas:/etc/riak/schemas
+      - ./riak.conf:/etc/riak/riak.conf
     network_mode: bridge
   member:
     image: basho/riak-kv
@@ -27,6 +28,8 @@ services:
     environment:
       - CLUSTER_NAME=riakkv
       - COORDINATOR_NODE=coordinator
+    volumes:
+      - ./riak.conf:/etc/riak/riak.conf
 
 volumes:
   schemas: {}
