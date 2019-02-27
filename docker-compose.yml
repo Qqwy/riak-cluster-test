@@ -7,6 +7,7 @@ services:
       - "8098"
     environment:
       - CLUSTER_NAME=riakkv
+      - WAIT_FOR_ERLANG=100
     labels:
       - "com.basho.riak.cluster.name=riak-kv"
     volumes:
@@ -28,6 +29,7 @@ services:
     environment:
       - CLUSTER_NAME=riakkv
       - COORDINATOR_NODE=coordinator
+      - WAIT_FOR_ERLANG=100
     volumes:
       - ./riak.conf:/etc/riak/riak.conf
 
