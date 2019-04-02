@@ -12,7 +12,7 @@ services:
       - "com.basho.riak.cluster.name=riak-kv"
     volumes:
       - schemas:/etc/riak/schemas
-      - ./riak.conf:/etc/riak/riak.conf
+      - ./user.conf:/etc/riak/user.conf
     network_mode: bridge
   member:
     image: basho/riak-kv
@@ -31,7 +31,7 @@ services:
       - COORDINATOR_NODE=coordinator
       - WAIT_FOR_ERLANG=100
     volumes:
-      - ./riak.conf:/etc/riak/riak.conf
+      - ./user.conf:/etc/riak/user.conf
 
 volumes:
   schemas: {}
